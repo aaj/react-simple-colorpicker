@@ -3,10 +3,15 @@ import rgb2hsv from "pure-color/convert/rgb2hsv";
 import hsv2rgb from "pure-color/convert/hsv2rgb";
 import rgb2string from "pure-color/convert/rgb2string";
 import rgb2grayscale from "pure-color/convert/rgb2grayscale";
+import colorNames from "color-name";
 
 
 export function parseToHsv(color) {
   color = parse(color);
+  if (color === undefined && colorNames.hasOwnProperty(color)) {
+    // if the passed in value corresponds to a color name, parse it
+    color = parse('rgb(' + colorNames[color].join(',') + ')');
+  }
   const hsv  = rgb2hsv(color);
 
   const alpha = color.length === 4 ? color[3] : 1;
