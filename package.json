@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.0",
+    "color-name": "^1.1.4",
     "create-react-class": "^15.0.0",
     "prop-types": "^15.5.10",
     "pure-color": "^1.2.0",
